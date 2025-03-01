@@ -1,0 +1,265 @@
+:root {
+    --primary-color: #ff6b6b;
+    --secondary-color: #f9f7f7;
+    --accent-color: #ff8585;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #1a1a2e;
+    color: white;
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.page.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 1s ease-in;
+}
+
+/* Rose Petals Animation */
+.rose-petals {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.petal {
+    position: absolute;
+    background-image: url('assets/petal.png');
+    background-size: contain;
+    animation: falling linear infinite;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Buttons */
+.btn-primary {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: scale(1.1);
+    background: var(--accent-color);
+}
+
+/* Beating Heart Animation */
+.beating-heart {
+    width: 100px;
+    height: 100px;
+    background: var(--primary-color);
+    position: relative;
+    transform: rotate(45deg);
+    animation: heartbeat 1.2s infinite;
+}
+
+.beating-heart::before,
+.beating-heart::after {
+    content: '';
+    width: 100px;
+    height: 100px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1) rotate(45deg); }
+    14% { transform: scale(1.3) rotate(45deg); }
+    28% { transform: scale(1) rotate(45deg); }
+    42% { transform: scale(1.3) rotate(45deg); }
+    70% { transform: scale(1) rotate(45deg); }
+}
+
+/* Music Control */
+.music-control {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* Welcome Text Styling */
+.welcome-text {
+    text-align: center;
+    z-index: 1;
+    padding: 20px;
+}
+
+.welcome-text h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-in;
+}
+
+/* Question Styling */
+.question {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-option {
+    padding: 15px 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
+    background: transparent;
+    color: white;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-option:hover {
+    background: var(--primary-color);
+}
+
+/* Wrong Answer Animation */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.wrong {
+    animation: shake 0.5s ease-in-out;
+    background: #ff4444 !important;
+}
+
+/* Music Control Styling */
+#toggleMusic {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.material-icons {
+    font-size: 30px !important;
+}
+
+/* Heart Button Styling */
+.btn-heart {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+}
+
+.btn-heart:hover {
+    transform: scale(1.1);
+    background: var(--accent-color);
+}
+
+/* Celebration Styling */
+.celebration-content {
+    text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.celebration-content h1 {
+    font-size: 2.5em;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Confetti Animation */
+.confetti-piece {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    animation: confettiFall 3s linear infinite;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Fireworks Animation */
+.firework {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: white;
+    animation: explode 2s ease-out forwards;
+}
+
+@keyframes explode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(30);
+        opacity: 0;
+    }
+} 
